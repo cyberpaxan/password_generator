@@ -1,19 +1,24 @@
-function makepass() {
-    const length = document.getElementById('rangePass').value;
-    let result = '';
-    let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
-    let charactersLength = characters.length;
-    for ( var i = 0; i < length; i++ ) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-   }
-   return result;
-}
+document.addEventListener('DOMContentLoaded', function () {
 
-// По клику на кнопку
-function resultToDiv() {
-    const password = makepass();
-    if (password.length > 37) {
-        document.getElementById('result').style.fontSize = 35+'px';
-    } 
-    document.getElementById("result").innerHTML = makepass();
-}
+    const inputRange = document.getElementById('rangePass');
+    const resultElement = document.getElementById('result');
+
+    inputRange.addEventListener('change', function () {
+        document.querySelector('.output').innerHTML = inputRange.value;
+    });
+
+    document.getElementById('btnPass').addEventListener('click', function () {
+        let result = '';
+        let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
+        for (var i = 0; i < inputRange.value; i++) {
+            result += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+
+        if (result.length > 35) {
+            resultElement.style.fontSize = 25 + 'px';
+        }
+
+        resultElement.innerHTML = result;
+    });
+
+});
