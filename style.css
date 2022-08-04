@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:200');
+
+:root {
+  --borderWidth: 3px;
+}
+
+* {
+  color: #fff;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #1D1F20;
+  overflow: hidden;
+}
+
+#box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 900px;
+  width: 100%;
+  max-height: 500px;
+  height: 100%;
+  font-family: 'Raleway';
+  font-size: 2.5rem;
+  flex-direction: column;
+  margin: 10px
+}
+
+.gradient-border {
+  background: #1D1F20;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+
+.gradient-border:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #ff0000, #fffb00, #40ff00, #0062ff, #9000ff);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 5s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+#result {
+  position: fixed;
+  font-size: 40px;
+}
+
+#btnPass {
+  position: fixed;
+  margin-top: 300px;
+  min-width: 100px;
+  border: none;
+  border-radius: 5px;
+  background: #711c1c;
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#rangePass {
+  margin-top: 100px;
+  margin-top: 170px;
+}
